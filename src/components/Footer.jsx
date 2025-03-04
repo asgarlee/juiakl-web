@@ -53,11 +53,14 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
-              <li><Link href="/events" className="text-gray-400 hover:text-white">Events</Link></li>
-              <li><Link href="/sermons" className="text-gray-400 hover:text-white">Friday Sermons</Link></li>
-              <li><Link href="/gallery" className="text-gray-400 hover:text-white">Gallery</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
+              <li className="text-gray-400">Updates</li>
+              <li className="pl-4"><Link href="/news" className="text-gray-400 hover:text-white">News</Link></li>
+              <li className="pl-4"><Link href="/events" className="text-gray-400 hover:text-white">Events</Link></li>
+              <li className="pl-4"><Link href="/majalis" className="text-gray-400 hover:text-white">Majalis</Link></li>
+              <li className="pl-4"><Link href="/sermons" className="text-gray-400 hover:text-white">Friday Sermon</Link></li>
+              <li><Link href="/departments" className="text-gray-400 hover:text-white">Departments</Link></li>
+              <li><Link href="/projects" className="text-gray-400 hover:text-white">Projects</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
             </ul>
           </div>
 

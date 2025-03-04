@@ -216,6 +216,82 @@ const Header = () => {
                   }`}></span>
                 </Link>
               </li>
+              <li className="relative group">
+                <button 
+                  className={`font-cinzel-regular relative inline-block group pb-1 ${
+                    scrolled 
+                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
+                      : 'text-white hover:text-gray-200'
+                  }`}
+                >
+                  <span className="relative">Updates</span>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                  }`}></span>
+                </button>
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="py-1" role="menu">
+                    <Link 
+                      href="/news" 
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      role="menuitem"
+                    >
+                      News
+                    </Link>
+                    <Link 
+                      href="/events" 
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      role="menuitem"
+                    >
+                      Events
+                    </Link>
+                    <Link 
+                      href="/majalis" 
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      role="menuitem"
+                    >
+                      Majalis
+                    </Link>
+                    <Link 
+                      href="/sermons" 
+                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      role="menuitem"
+                    >
+                      Friday Sermon
+                    </Link>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <Link 
+                  href="/departments" 
+                  className={`font-cinzel-regular relative inline-block group pb-1 ${
+                    scrolled 
+                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
+                      : 'text-white hover:text-gray-200'
+                  }`}
+                >
+                  <span className="relative">Departments</span>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                  }`}></span>
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/projects" 
+                  className={`font-cinzel-regular relative inline-block group pb-1 ${
+                    scrolled 
+                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
+                      : 'text-white hover:text-gray-200'
+                  }`}
+                >
+                  <span className="relative">Projects</span>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                  }`}></span>
+                </Link>
+              </li>
               <li>
                 <Link 
                   href="/about" 
@@ -226,66 +302,6 @@ const Header = () => {
                   }`}
                 >
                   <span className="relative">About</span>
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
-                  }`}></span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/events" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
-                >
-                  <span className="relative">Events</span>
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
-                  }`}></span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/sermons" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
-                >
-                  <span className="relative">Friday Sermons</span>
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
-                  }`}></span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/gallery" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
-                >
-                  <span className="relative">Gallery</span>
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
-                  }`}></span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/contact" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
-                >
-                  <span className="relative">Contact</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                     scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
                   }`}></span>
@@ -314,48 +330,73 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <div className="py-3 px-2">
+                <span className="font-cinzel-regular text-gray-800 dark:text-white">Updates</span>
+                <ul className="mt-2 space-y-1 pl-4">
+                  <li>
+                    <Link 
+                      href="/news" 
+                      className="block py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      News
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/events" 
+                      className="block py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Events
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/majalis" 
+                      className="block py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Majalis
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/sermons" 
+                      className="block py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Friday Sermon
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <Link 
+                href="/departments" 
+                className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Departments
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/projects" 
+                className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Projects
+              </Link>
+            </li>
+            <li>
               <Link 
                 href="/about" 
                 className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
-              </Link>
-            </li>
-            <li>
-              <Link 
-                href="/events" 
-                className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Events
-              </Link>
-            </li>
-            <li>
-              <Link 
-                href="/sermons" 
-                className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Friday Sermons
-              </Link>
-            </li>
-            <li>
-              <Link 
-                href="/gallery" 
-                className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link 
-                href="/contact" 
-                className="font-cinzel-regular block py-3 px-2 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
               </Link>
             </li>
           </ul>
