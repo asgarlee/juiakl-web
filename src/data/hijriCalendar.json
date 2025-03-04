@@ -1,0 +1,89 @@
+{
+  "year": "1446",
+  "months": [
+    {
+      "month": 1,
+      "name": "Muharram",
+      "gregorianStart": "2024-07-05",
+      "hijriStart": "1446-01-01",
+      "days": 30
+    },
+    {
+      "month": 2,
+      "name": "Safar",
+      "gregorianStart": "2024-08-04",
+      "hijriStart": "1446-02-01",
+      "days": 29
+    },
+    {
+      "month": 3,
+      "name": "Rabi' al-awwal",
+      "gregorianStart": "2024-09-02",
+      "hijriStart": "1446-03-01",
+      "days": 30
+    },
+    {
+      "month": 4,
+      "name": "Rabi' al-thani",
+      "gregorianStart": "2024-10-02",
+      "hijriStart": "1446-04-01",
+      "days": 29
+    },
+    {
+      "month": 5,
+      "name": "Jumada al-awwal",
+      "gregorianStart": "2024-10-31",
+      "hijriStart": "1446-05-01",
+      "days": 30
+    },
+    {
+      "month": 6,
+      "name": "Jumada al-thani",
+      "gregorianStart": "2024-11-30",
+      "hijriStart": "1446-06-01",
+      "days": 29
+    },
+    {
+      "month": 7,
+      "name": "Rajab",
+      "gregorianStart": "2024-12-29",
+      "hijriStart": "1446-07-01",
+      "days": 30
+    },
+    {
+      "month": 8,
+      "name": "Sha'ban",
+      "gregorianStart": "2025-01-28",
+      "hijriStart": "1446-08-01",
+      "days": 29
+    },
+    {
+      "month": 9,
+      "name": "Ramadan",
+      "gregorianStart": "2025-03-02",
+      "hijriStart": "1446-09-01",
+      "days": 30
+    },
+    {
+      "month": 10,
+      "name": "Shawwal",
+      "gregorianStart": "2025-04-01",
+      "hijriStart": "1446-10-01",
+      "days": 29
+    },
+    {
+      "month": 11,
+      "name": "Dhu al-Qi'dah",
+      "gregorianStart": "2025-04-30",
+      "hijriStart": "1446-11-01",
+      "days": 30
+    },
+    {
+      "month": 12,
+      "name": "Dhu al-Hijjah",
+      "gregorianStart": "2025-05-29",
+      "hijriStart": "1446-12-01",
+      "days": 29
+    }
+  ]
+} 
