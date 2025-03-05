@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { initiatives } from '../data/initiatives';
 
 const Initiatives = () => {
+  // Show only first 6 initiatives
+  const displayedInitiatives = initiatives.slice(0, 6);
+
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -19,15 +22,15 @@ const Initiatives = () => {
         </div>
 
         {/* Initiatives Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {initiatives.map((initiative) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayedInitiatives.map((initiative) => (
             <Link 
               key={initiative.id} 
               href={initiative.link}
               className="group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
             >
               {/* Background Pattern */}
-              <div className={`absolute inset-0 opacity-5 ${initiative.color}`} />
+              <div className={`absolute inset-0 opacity-5 ${initiative.color || 'bg-blue-500'}`} />
               
               {/* Content */}
               <div className="relative p-6">
@@ -66,9 +69,32 @@ const Initiatives = () => {
               </div>
 
               {/* Hover Effect Overlay */}
-              <div className={`absolute inset-0 ${initiative.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              <div className={`absolute inset-0 ${initiative.color || 'bg-blue-500'} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
             </Link>
           ))}
+        </div>
+
+        {/* See All Link */}
+        <div className="text-center mt-12">
+          <Link 
+            href="/ourInitiatives"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          >
+            <span className="font-cinzel-bold">See All Initiatives</span>
+            <svg 
+              className="w-5 h-5 ml-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M17 8l4 4m0 0l-4 4m4-4H3" 
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

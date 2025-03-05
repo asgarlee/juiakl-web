@@ -36,7 +36,7 @@ export default function OurInitiativesPage() {
 
       {/* Initiatives Grid */}
       <div className="container mx-auto px-4 py-16 sm:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {initiatives.map((initiative) => (
             <Link 
               key={initiative.id} 
@@ -45,77 +45,41 @@ export default function OurInitiativesPage() {
             >
               {/* Square Image Section */}
               <div className="relative aspect-square overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                 <div className="relative w-full h-full flex items-center justify-center p-6">
-                  <div className="relative w-56 h-56 rounded-lg overflow-hidden">
+                  <div className="relative w-40 h-40 rounded-lg overflow-hidden">
                     <Image
                       src={initiative.imageUrl}
                       alt={initiative.title}
                       fill
-                      className="object-contain p-4 transition-transform duration-300 group-hover:scale-110"
+                      className="object-contain p-3 transition-transform duration-300 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Content Section */}
-              <div className="p-6">
-                {/* Title and Description */}
-                <div className="mb-6">
-                  <h3 className="text-2xl font-cinzel-bold text-gray-900 dark:text-white mb-3">
-                    {initiative.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-base line-clamp-2">
-                    {initiative.description}
-                  </p>
-                </div>
-
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {initiative.stats.map((stat, index) => (
-                    <div 
-                      key={index}
-                      className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg"
-                    >
-                      <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">
-                        {typeof stat === 'object' ? stat.label : 'Statistic'}
-                      </div>
-                      <div className="text-lg font-semibold text-gray-900 dark:text-white">
-                        {typeof stat === 'object' ? stat.value : stat}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Services */}
-                {initiative.services && (
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider">
-                      Services
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {initiative.services.slice(0, 3).map((service, index) => (
-                        <span 
-                          key={index}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                      {initiative.services.length > 3 && (
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
-                          +{initiative.services.length - 3} more
-                        </span>
-                      )}
-                    </div>
+              <div className="p-4">
+                <h3 className="text-lg font-cinzel-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                  {initiative.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mb-3">
+                  {initiative.description}
+                </p>
+                
+                {/* Key Stat */}
+                {initiative.stats[0] && (
+                  <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    {initiative.stats[0].label}: {initiative.stats[0].value}
                   </div>
                 )}
 
                 {/* Learn More Button */}
                 <div className="flex justify-end">
-                  <span className="inline-flex items-center px-4 py-2 rounded-lg text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors duration-300">
+                  <span className="inline-flex items-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
                     Learn More
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>

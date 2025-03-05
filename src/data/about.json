@@ -1,0 +1,131 @@
+{
+  "name": "Jamiat-ul-Ulama Isna Asharia, Kargil-Ladakh",
+  "formation": "1953",
+  "founder": "Hujjatul Islam Sheikh Muhammad Mufeed",
+  "type": "Socio-Religious Institution",
+  "legalStatus": "Registered Society",
+  "headquarters": "Kargil",
+  "region": "Ladakh",
+  "services": "Religious, Educational and Social",
+  "officialLanguages": ["Urdu", "Balti"],
+  "executive": {
+    "president": "Sheikh Nazir Mehdi Mohammadi",
+    "vicePresident": "Sheikh Ghulam Ali Mufeed",
+    "generalSecretary": "Sheikh Ibrahim Khalili",
+    "imamEJummah": "Sheikh Ibrahim Khalili",
+    "keyPeople": [
+      "Sheikh Mussa Shariefi",
+      "Sheikh Ahmed Mohammadi",
+      "Sheikh Mufeed"
+    ]
+  },
+  "keyFigures": {
+    "founder": {
+      "name": "Hujjatul Islam Sheikh Muhammad Mufeed",
+      "role": "Founder",
+      "description": "The visionary founder who established JUIAKL in 1953 to serve the religious and educational needs of the Shia community in Ladakh. His leadership and dedication laid the foundation for the organization's growth and development.",
+      "image": "/images/key-figures/photo1.webp"
+    },
+    "otherFigures": [
+      {
+        "name": "Sheikh Mussa Shariefi",
+        "role": "Former President",
+        "description": "A prominent religious scholar who played a crucial role in expanding the organization's influence and establishing various educational institutions.",
+        "image": "/images/key-figures/sheikh-mussa.jpg"
+      },
+      {
+        "name": "Sheikh Ahmed Mohammadi",
+        "role": "Former President",
+        "description": "Led the organization through significant growth and development, strengthening its position as the leading Islamic institution in Ladakh.",
+        "image": "/images/key-figures/sheikh-ahmed.jpg"
+      },
+      {
+        "name": "Sheikh Ghulam Ali Mufeed",
+        "role": "Former President",
+        "description": "Contributed significantly to the organization's educational and social development programs.",
+        "image": "/images/key-figures/sheikh-ghulam.jpg"
+      },
+      {
+        "name": "Sheikh Ibrahim Khalili",
+        "role": "Former General Secretary",
+        "description": "Played a vital role in strengthening the organization's administrative structure and community outreach.",
+        "image": "/images/key-figures/sheikh-ibrahim.jpg"
+      },
+      {
+        "name": "Sheikh Nazir Mehdi Mohammadi",
+        "role": "Current President",
+        "description": "Leading the organization with vision and dedication, focusing on modern development while preserving traditional values.",
+        "image": "/images/key-figures/sheikh-nazir.jpg"
+      }
+    ]
+  },
+  "website": "juiak.org",
+  "about": {
+    "overview": "Jamiat-ul-Ulama Isna Asharia, Kargil-Ladakh is the largest Islamic organization in Ladakh and the oldest body of religious leaders in the region. It caters primarily to the socio-religious needs of the local Shia Muslim community by overseeing religious guidance, running madrasas, and monitoring prayer practices. The institution also organizes Friday prayers in Kargil town and plays a vital role in the cultural and educational development of the area.",
+    "history": "Established in 1953, the institution was founded to address the religious and educational needs of the predominantly Shia population in Ladakh. Over the decades, it has grown to assume jurisdiction over local Ulemas, deputing them to villages for religious guidance and community service. Recent elections were held on 11 September 2021, resulting in the re-election of Sheikh Nazir Mehdi Mohammadi as president for the second term."
+  },
+  "subsidiaryOrgans": [
+    {
+      "name": "Ulama Council",
+      "description": "The chief body of Shia clerics in the district."
+    },
+    {
+      "name": "Howza-e-Ilmiyah Isna Asharia, Kargil",
+      "affiliation": "Al-Mustafa International University, Qom",
+      "description": "Provides religious education to selected students and prepares them for higher studies in Islamic theology."
+    },
+    {
+      "name": "Jamiat ul Ulama Mashhad Office",
+      "location": "Islamic Republic of Iran",
+      "description": "Branch office serving the region from Mashhad."
+    },
+    {
+      "name": "Jaffaria Academy of Modern Education",
+      "description": "A prominent higher secondary school in the region."
+    },
+    {
+      "name": "Maktab e Isna Asharia (Daar ul Quran)",
+      "description": "Governs and provides Quranic education in seminaries across several villages."
+    },
+    {
+      "name": "Jawadiah Project CARE",
+      "description": "An educational project supporting students from underprivileged backgrounds and preparing them for competitive examinations."
+    },
+    {
+      "name": "Az-Zahra Girls Orphanage",
+      "description": "Cares for the orphans of the region."
+    },
+    {
+      "name": "Haye'te Fatimiyah",
+      "description": "The women's wing of the organization."
+    },
+    {
+      "name": "Isna Asharia Network (Media Cell ISK)",
+      "description": "Handles public and media relations for the organization."
+    },
+    {
+      "name": "Ansar ul Mahdi Isna Asharia Youths",
+      "description": "Youth wing focused on engaging and empowering the younger community."
+    },
+    {
+      "name": "Shoba e Adab",
+      "description": "A wing dedicated to poetry, literature, and publishing, established by renowned local writers and poets."
+    },
+    {
+      "name": "Al Reza Health Care & Research Foundation",
+      "description": "The health wing of the organization."
+    },
+    {
+      "name": "Hawza Ilmiyah Jamiat-ul-Batool",
+      "description": "A women's college providing Islamic education."
+    },
+    {
+      "name": "Khitmat Guzaraan e Ahlulbait (Servants of the Ahl al-Bayt)",
+      "description": "A committee dedicated to helping poor families by providing basic necessities."
+    },
+    {
+      "name": "Al Askari Disaster Management",
+      "description": "Responsible for managing disaster relief and supporting affected communities."
+    }
+  ]
+} 
