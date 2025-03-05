@@ -1,24 +1,26 @@
 'use client';
 
-import { initiatives } from '@/data/initiatives';
+import { useEffect, useState } from 'react';
+import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useState, useEffect } from 'react';
+import { initiatives } from '@/data/initiatives';
 
-export default function InitiativePage({ params }) {
+const InitiativePage = ({ params }) => {
+  const unwrappedParams = use(params);
   const [initiative, setInitiative] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    const foundInitiative = initiatives.find(i => i.id === params.id);
+    const foundInitiative = initiatives.find(i => i.id === unwrappedParams.id);
     setInitiative(foundInitiative);
     if (foundInitiative?.gallery?.categories?.[0]?.name) {
       setSelectedCategory(foundInitiative.gallery.categories[0].name);
     }
-  }, [params.id]);
+  }, [unwrappedParams.id]);
 
   if (!initiative) {
     return (
@@ -489,4 +491,6 @@ export default function InitiativePage({ params }) {
       <Footer />
     </main>
   );
-} 
+}
+
+export default InitiativePage; 

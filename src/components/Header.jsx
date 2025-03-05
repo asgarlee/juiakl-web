@@ -4,10 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { getCurrentHijriDate, getHijriDate } from '../utils/hijriDateUtils';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const [currentDate, setCurrentDate] = useState({
     gregorian: new Date().toLocaleDateString('en-US', { 
       day: 'numeric', 
@@ -75,6 +77,30 @@ const Header = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const isActive = (path) => {
+    if (path === '/') {
+      return pathname === path;
+    }
+    if (path === '/ourInitiatives') {
+      return pathname.startsWith('/ourInitiatives') || pathname.startsWith('/organizations/');
+    }
+    return pathname.startsWith(path);
+  };
+
+  const getLinkClasses = (path) => {
+    const baseClasses = `font-cinzel-regular relative inline-block group pb-1 ${
+      scrolled 
+        ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
+        : 'text-white hover:text-gray-200'
+    }`;
+
+    const activeClasses = isActive(path)
+      ? 'font-cinzel-bold text-blue-600 dark:text-blue-400'
+      : '';
+
+    return `${baseClasses} ${activeClasses}`;
   };
 
   return (
@@ -204,57 +230,73 @@ const Header = () => {
               <li>
                 <Link 
                   href="/" 
-                  className={`font-cinzel-bold relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
+                  className={getLinkClasses('/')}
                 >
                   <span className="relative">Home</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                    isActive('/') 
+                      ? 'w-full bg-blue-600 dark:bg-blue-400' 
+                      : scrolled 
+                        ? 'bg-blue-600 dark:bg-gray-200' 
+                        : 'bg-white'
                   }`}></span>
                 </Link>
               </li>
               <li className="relative group">
                 <button 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
+                  className={getLinkClasses('/updates')}
                 >
                   <span className="relative">Updates</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                    isActive('/updates') 
+                      ? 'w-full bg-blue-600 dark:bg-blue-400' 
+                      : scrolled 
+                        ? 'bg-blue-600 dark:bg-gray-200' 
+                        : 'bg-white'
                   }`}></span>
                 </button>
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="py-1" role="menu">
                     <Link 
                       href="/news" 
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className={`block px-4 py-2 text-sm ${
+                        isActive('/news')
+                          ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-700'
+                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      }`}
                       role="menuitem"
                     >
                       News
                     </Link>
                     <Link 
                       href="/events" 
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className={`block px-4 py-2 text-sm ${
+                        isActive('/events')
+                          ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-700'
+                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      }`}
                       role="menuitem"
                     >
                       Events
                     </Link>
                     <Link 
                       href="/majalis" 
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className={`block px-4 py-2 text-sm ${
+                        isActive('/majalis')
+                          ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-700'
+                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      }`}
                       role="menuitem"
                     >
                       Majalis
                     </Link>
                     <Link 
                       href="/sermons" 
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      className={`block px-4 py-2 text-sm ${
+                        isActive('/sermons')
+                          ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-700'
+                          : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      }`}
                       role="menuitem"
                     >
                       Friday Sermon
@@ -265,45 +307,45 @@ const Header = () => {
               <li>
                 <Link 
                   href="/ourInitiatives" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
+                  className={getLinkClasses('/ourInitiatives')}
                 >
                   <span className="relative">Initiatives</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                    isActive('/ourInitiatives') 
+                      ? 'w-full bg-blue-600 dark:bg-blue-400' 
+                      : scrolled 
+                        ? 'bg-blue-600 dark:bg-gray-200' 
+                        : 'bg-white'
                   }`}></span>
                 </Link>
               </li>
               <li>
                 <Link 
                   href="/projects" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
+                  className={getLinkClasses('/projects')}
                 >
                   <span className="relative">Projects</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                    isActive('/projects') 
+                      ? 'w-full bg-blue-600 dark:bg-blue-400' 
+                      : scrolled 
+                        ? 'bg-blue-600 dark:bg-gray-200' 
+                        : 'bg-white'
                   }`}></span>
                 </Link>
               </li>
               <li>
                 <Link 
                   href="/about" 
-                  className={`font-cinzel-regular relative inline-block group pb-1 ${
-                    scrolled 
-                      ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
-                      : 'text-white hover:text-gray-200'
-                  }`}
+                  className={getLinkClasses('/about')}
                 >
                   <span className="relative">About</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
+                    isActive('/about') 
+                      ? 'w-full bg-blue-600 dark:bg-blue-400' 
+                      : scrolled 
+                        ? 'bg-blue-600 dark:bg-gray-200' 
+                        : 'bg-white'
                   }`}></span>
                 </Link>
               </li>
