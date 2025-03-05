@@ -264,14 +264,14 @@ const Header = () => {
               </li>
               <li>
                 <Link 
-                  href="/departments" 
+                  href="/ourInitiatives" 
                   className={`font-cinzel-regular relative inline-block group pb-1 ${
                     scrolled 
                       ? 'text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-gray-200' 
                       : 'text-white hover:text-gray-200'
                   }`}
                 >
-                  <span className="relative">Departments</span>
+                  <span className="relative">Initiatives</span>
                   <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                     scrolled ? 'bg-blue-600 dark:bg-gray-200' : 'bg-white'
                   }`}></span>

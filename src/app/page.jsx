@@ -2,6 +2,7 @@ import Header from '@/components/Header.jsx'
 import HeroBanner from '@/components/HeroBanner.jsx'
 import Footer from '@/components/Footer.jsx'
 import NewsSection from '@/components/NewsSection'
+import Initiatives from '../components/Initiatives'
 
 export default function Home() {
   // Sample news data
@@ -64,6 +65,9 @@ export default function Home() {
         }}
       />
       <NewsSection featuredNews={featuredNews} news={news} />
+      <div className="pt-32">
+        <Initiatives />
+      </div>
       <Footer />
     </main>
   )
