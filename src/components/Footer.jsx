@@ -15,7 +15,7 @@ const Footer = () => {
               <div className="flex items-center">
                 {/* Main Logo */}
                 <Image 
-                  src="/logo/juiakllogo.png" 
+                  src="/images/logo/juiakllogo.png" 
                   alt="JUIAKL Logo" 
                   width={220} 
                   height={50}
@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-4">
-              Jamiat ul Ulama Isna Asharia Kargil Ladakh - Serving the community with faith and dedication.
+              erving the community with faith and dedication.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
@@ -50,30 +50,23 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Media</h3>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>
-              <li className="text-gray-400">Updates</li>
-              <li className="pl-4"><Link href="/news" className="text-gray-400 hover:text-white">News</Link></li>
-              <li className="pl-4"><Link href="/events" className="text-gray-400 hover:text-white">Events</Link></li>
-              <li className="pl-4"><Link href="/majalis" className="text-gray-400 hover:text-white">Majalis</Link></li>
-              <li className="pl-4"><Link href="/sermons" className="text-gray-400 hover:text-white">Friday Sermon</Link></li>
-              <li><Link href="/departments" className="text-gray-400 hover:text-white">Departments</Link></li>
-              <li><Link href="/projects" className="text-gray-400 hover:text-white">Projects</Link></li>
+              <li><Link href="/" className="text-gray-400 hover:text-white">Images Gallery</Link></li>
+              <li><Link href="/departments" className="text-gray-400 hover:text-white">Video Gallery</Link></li>
+              <li><Link href="/projects" className="text-gray-400 hover:text-white">Notes</Link></li>
               <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
             </ul>
           </div>
 
           {/* Affiliated Organizations */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Organizations</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="https://projectcare.juiakl.org" className="text-gray-400 hover:text-white">Project Care</a></li>
               <li><a href="https://fatimahospital.juiakl.org" className="text-gray-400 hover:text-white">Fatima Hospital</a></li>
-              <li><a href="https://orphanage.juiakl.org" className="text-gray-400 hover:text-white">Orphanage Home</a></li>
-              <li><a href="https://highschool.juiakl.org" className="text-gray-400 hover:text-white">High School</a></li>
-              <li><a href="https://girlsorphanage.juiakl.org" className="text-gray-400 hover:text-white">Girls Orphan School</a></li>
-              <li><a href="https://media.juiakl.org" className="text-gray-400 hover:text-white">Media Cell</a></li>
+              <li><a href="https://orphanage.juiakl.org" className="text-gray-400 hover:text-white">Charity</a></li>
+              <li><a href="https://highschool.juiakl.org" className="text-gray-400 hover:text-white">Education</a></li>
             </ul>
           </div>
 
