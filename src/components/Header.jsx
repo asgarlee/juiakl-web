@@ -165,7 +165,7 @@ const Header = () => {
                   : 'w-[200px] sm:w-[250px] md:w-[280px] lg:w-[300px] h-[53px] sm:h-[66px] md:h-[74px] lg:h-[80px]'
               }`}>
                 <Image 
-                  src="images/logo/juiakllogo.png" 
+                  src="/images/logo/juiakllogo.png" 
                   alt="JUIAKL Logo" 
                   fill
                   className={`object-contain transition-opacity duration-300 ${
@@ -173,7 +173,7 @@ const Header = () => {
                   }`}
                 />
                 <Image 
-                  src="images/logo/logo-dark.png" 
+                  src="/images/logo/logo-dark.png" 
                   alt="JUIAKL Logo" 
                   fill
                   className={`object-contain transition-opacity duration-300 ${
