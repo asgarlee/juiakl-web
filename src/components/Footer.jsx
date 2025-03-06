@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-4">
-              Jamiat ul Ulama Isna Asharia Kargil Ladakh - Serving the community with faith and dedication.
+              Serving the community with faith and dedication.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
