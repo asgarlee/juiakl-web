@@ -16,7 +16,7 @@ export default function OurInitiativesPage() {
       <div className="relative pt-32 pb-16 sm:pt-40 sm:pb-24">
         <div className="absolute inset-0">
           <Image
-            src="/images/initiatives-hero.jpg"
+            src="/images/news-hero.jpg"
             alt="Our Initiatives"
             fill
             className="object-cover"
