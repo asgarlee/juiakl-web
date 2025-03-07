@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Cinzel_Decorative } from 'next/font/google';
+import { Cinzel_Decorative, Roboto } from 'next/font/google';
+import { newsData } from '@/data/newsData';
 
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ['latin'],
@@ -11,58 +12,49 @@ const cinzelDecorative = Cinzel_Decorative({
   display: 'swap',
 });
 
-const NewsSection = ({ 
-  featuredNews,
-  news = [] // Add default value
-}) => {
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  display: 'swap',
+});
+
+const NewsSection = ({ news = newsData }) => {
   const formatDate = (dateString) => {
     if (!dateString) return '';
-    if (dateString === "Every Friday") return dateString;
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
-      month: 'long', 
+      month: 'short', 
       day: 'numeric', 
       year: 'numeric' 
     });
   };
 
-  const categoryColors = {
-    Events: 'bg-purple-100 text-purple-800',
-    Healthcare: 'bg-blue-100 text-blue-800',
-    Education: 'bg-green-100 text-green-800',
-    Community: 'bg-orange-100 text-orange-800',
-    Prayer: 'bg-indigo-100 text-indigo-800'
-  };
-
-  // If no featured news, show a message
-  if (!featuredNews && (!news || news.length === 0)) {
+  if (news.length === 0) {
     return (
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <motion.h2 
-              className={`${cinzelDecorative.className} text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+          <div className="text-center">
+            <h2 className={`${cinzelDecorative.className} text-3xl font-bold mb-6`}>
               Latest News
-            </motion.h2>
-          </div>
-          <div className="text-center text-gray-600 dark:text-gray-400">
-            <p>No news articles available at this time. Check back soon!</p>
+            </h2>
+            <p className={`${roboto.className} text-gray-600 dark:text-gray-400`}>
+              No news articles available at this time.
+            </p>
           </div>
         </div>
       </section>
     );
   }
 
+  // Separate the first news item for the featured card
+  const [featuredNews, ...otherNews] = news;
+
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className={`py-20 bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-900 dark:to-gray-800/50 ${roboto.className}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <motion.h2 
-            className={`${cinzelDecorative.className} text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4`}
+            className={`${cinzelDecorative.className} text-3xl md:text-4xl font-bold text-gray-900 dark:text-white`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -71,98 +63,114 @@ const NewsSection = ({
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Featured News */}
-          {featuredNews && (
-            <motion.div 
-              className="lg:col-span-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Link href={`/news/${featuredNews.id}`} className="block group">
-                <div className="relative h-[450px] rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src={featuredNews.image}
-                    alt={featuredNews.title}
-                    fill
-                    priority
-                    quality={100}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw"
-                    className="object-cover z-0"
-                  />
-                  <div 
-                    className="absolute inset-0 z-10" 
-                    style={{ 
-                      background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%)' 
-                    }}
-                  >
-                    <div className="absolute bottom-0 p-6 text-white">
-                      <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-3 ${categoryColors[featuredNews.category]}`}>
-                        {featuredNews.category}
-                      </span>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
-                        {featuredNews.title}
-                      </h3>
-                      <p className="text-gray-200 mb-4 line-clamp-2">
-                        {featuredNews.description}
-                      </p>
-                      <div className="flex items-center text-sm">
-                        <span>{featuredNews.author}</span>
-                        <span className="mx-2">•</span>
-                        <span>{formatDate(featuredNews.date)}</span>
-                        <span className="mx-2">•</span>
-                        <span>{featuredNews.readTime}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Featured News Card (Left) */}
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full"
+          >
+            <Link href={`/news/${featuredNews.id}`} className="block h-full">
+              <div className="relative h-[500px] lg:h-full min-h-[500px] overflow-hidden">
+                <Image
+                  src={featuredNews.image}
+                  alt={featuredNews.title}
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Enhanced gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full mb-4">
+                    {featuredNews.category}
+                  </span>
+                  <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors tracking-tight">
+                    {featuredNews.title}
+                  </h3>
+                  <p className="text-gray-200 mb-4 line-clamp-2 font-normal">
+                    {featuredNews.description}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-gray-300">
+                    <span className="font-medium">{featuredNews.author}</span>
+                    <time className="text-gray-300/90">{formatDate(featuredNews.date)}</time>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.article>
+
+          {/* Grid of 4 Square Cards (Right) */}
+          <div className="grid grid-cols-2 gap-6">
+            {otherNews.slice(0, 4).map((article, index) => (
+              <motion.article
+                key={article.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                <Link href={`/news/${article.id}`}>
+                  <div className="relative">
+                    {/* Square aspect ratio container */}
+                    <div className="relative aspect-square">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      {/* Enhanced gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70 group-hover:opacity-60 transition-opacity duration-300" />
+                      
+                      {/* Content overlay with extra gradient for text */}
+                      <div className="absolute inset-0 p-4 flex flex-col justify-end">
+                        {/* Additional gradient specifically behind text */}
+                        <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent opacity-60" />
+                        
+                        <div className="relative z-10">
+                          <span className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full mb-2 w-fit">
+                            {article.category}
+                          </span>
+                          <h3 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2 mb-2 tracking-tight">
+                            {article.title}
+                          </h3>
+                          <div className="flex items-center justify-between text-xs text-gray-300">
+                            <time className="text-gray-300/90">{formatDate(article.date)}</time>
+                            <span className="font-medium">{article.readTime}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          )}
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
 
-          {/* News Column */}
-          {news && news.length > 0 && (
-            <div className="flex flex-col gap-4">
-              {news.slice(0, 3).map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex-1"
-                >
-                  <Link href={`/news/${item.id}`} className="block group h-full">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg h-[142px] flex">
-                      <div className="relative w-1/3">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="w-2/3 p-4 flex flex-col justify-between">
-                        <div>
-                          <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-2 ${categoryColors[item.category]}`}>
-                            {item.category}
-                          </span>
-                          <h3 className="text-base font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                            {item.title}
-                          </h3>
-                        </div>
-                        <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-2">
-                          <span>{formatDate(item.date)}</span>
-                          <span className="mx-2">•</span>
-                          <span>{item.readTime}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          )}
+        {/* More News Button */}
+        <div className="mt-12 text-center">
+          <Link 
+            href="/news" 
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+          >
+            View More News
+            <svg 
+              className="ml-2 w-5 h-5" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M17 8l4 4m0 0l-4 4m4-4H3" 
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
