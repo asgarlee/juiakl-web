@@ -3,6 +3,7 @@ import HeroBanner from "@/components/HeroBanner.jsx";
 import Footer from "@/components/Footer.jsx";
 import NewsSection from "@/components/NewsSection";
 import Initiatives from "../components/Initiatives";
+import PrayerTime from '@/components/PrayerTime';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       />
       <NewsSection />
       <Initiatives />
+      <PrayerTime />
       <Footer />
     </main>
   );
