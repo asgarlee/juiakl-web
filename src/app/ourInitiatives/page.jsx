@@ -24,7 +24,7 @@ export default function OurInitiativesPage() {
           />
           <div className="absolute inset-0 bg-gray-900/70" />
         </div>
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto pt-30 px-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-cinzel-bold text-white text-center mb-6">
             Our Initiatives
           </h1>
